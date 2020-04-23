@@ -1,0 +1,43 @@
+﻿<html>
+<head>
+  <title>Lab 1</title>
+  <meta charset=utf-8>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div id="navbarCollapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+        <li><a href="lab2.html">lab 2</a>
+            </li>
+	    <li><a href="lab3.html">lab 3</a>
+            </li>
+	    <li><a href="lab4.html">lab 4</a>
+            </li>
+        <li><a href="lab5.html">lab 5</a>
+            </li>
+        </ul>
+    </div>
+ Формула
+<p>h =<input id="h">
+<p>k =<input id="k">
+<p>c =<input id="c">
+<p>r =<input id="r">
+
+<p><button id="Obchusluty">Обчислити!</button>
+<hr>
+<div id="result"></div>
+<script>
+function calc() {
+    var h = document.getElementById('h').value;
+    var k = document.getElementById('k').value;
+    var c = document.getElementById('c').value;
+    var r = document.getElementById('r').value;
+    var w=Math.sqrt(Math.pow(r,2) + k*Math.log(c))+Math.pow(Math.tan(h),2);
+    var z=Math.pow(r,2)+Math.pow(Math.cos(h),2)+Math.pow(Math.exp(1),k);
+    var html = 'w= ' + w +'\t'+ 'z= ' + z;
+    document.getElementById('result').innerHTML = html;
+}
+document.getElementById('Obchusluty').addEventListener('click', calc);
+</script> 
+</body>
+</html>
