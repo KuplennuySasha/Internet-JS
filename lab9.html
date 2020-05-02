@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Ajax</title>
+  <script>
+
+    function onclicks() {
+      var n1 = $('#num1').val();
+      var n2 = $('#num2').val();
+      $.ajax({
+        type: 'POST',
+        url: 'http://kib.tk.te.ua/a1.php',
+        data: 'num1=' + n1 + '&num2=' + n2,
+        success: function (data) {
+          $('.result1').html(data);
+        }
+      });
+    }
+
+    function year() {
+
+      var year = Number($('#year').val());
+      $.ajax({
+
+        type: 'POST',
+        url: 'http://kib.tk.te.ua/a2.php',
+        data: 'year=' + year,
+        success: function (data) {
+          $('.result2').html(data);
+        }
+      });
+    }
+    function check() {
+      let inp = document.getElementsByName('r');
+      var sex;
+      var height = Number($('#height').val());
+      for (var i = 0; i < inp.length; i++) {
+        if (inp[i].type == "radio" && inp[i].checked) {
+          sex = inp[i].value;
+        }
+      }
+      $.ajax({
+        type: 'POST',
+        url: 'http://kib.tk.te.ua/a3.php',
+        data: 'sex=' + sex + '&height=' + height,
+        success: function (data) {
+          $('.result3').html(data);
+        }
+      });
+
+    }
+
+
+
+    function check2() {
+
+      let inp = document.getElementsByName('r');
+      var sex;
+      var height2 = Number($('#range').val());
+      for (var i = 0; i < inp.length; i++) {
+        if (inp[i].type == "radio" && inp[i].checked) {
+          sex = inp[i].value;
+        }
+      }
+      $.ajax({
+        type: 'POST',
+        url: 'http://kib.tk.te.ua/a3.php',
+        data: 'sex=' + sex + '&height=' + height2,
+        success: function (data) {
+          $('.result4').html(data);
+        }
+      });
+
+    }
+
+
+  </script>
+</head>
+
+<body>
+<div align=center style="padding: 20px;">
+    <h4>Додавання</h4>
+    номер 1 =<input type="text" id="num1"></input><br><br>
+    номер 2 =<input type="text" id="num2"></input><br><br>
+    <input type="button" value="Обчислити" onClick="onclicks()">
+    <div class="result1"></div>
+  
+    <h4>Який вік ?</h4>
+    Рік народження =<input type="text" id="year"></input><br><br>
+    <input type="button" value="Обчислити" onClick="year()"><br>
+  
+    <div class="result2"></div>
+    <h4>Ідеальна вага</h4>
+    <input type="radio" name="r" value=man checked>чоловік<br>
+    <input type="radio" name="r" value=woman checked>жінка<br><br>
+    Внесіть висоту =<input type="text" id="height"></input><br><br>
+    <input type="button" value="Ідеальна вагаt" onClick="check()">
+    <div class="result3"></div>
+  
+    <h4>Ідеальна вага</h4>
+    <input type="radio" name="r" value=man checked>чоловік<br><br>
+    <input type="radio" name="r" value=woman checked>жінка<br><br>
+    Внесіть ріст =<input type="range" id="range" name="volume" min="100" max="250" width="200"></input><br><br>
+    <input type="button" value="Ідеальна вага" onClick="check2()">
+    <div class="result4"></div>
+</div>
+
+
+</body>
+
+</html>
